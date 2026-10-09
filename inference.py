@@ -6,7 +6,8 @@ from models.EfficientFace import EfficientFace  # โครงสร้างโ
 class EfficientFacePredictor:
     def __init__(self, checkpoint_path="checkpoint/[09-30]-[05-21]-model_best.pth.tar"):
         # 1. กำหนด Device (GPU/CPU)
-        self.device = torch.device("cuda" if torch.cuda.device.is_available() else "cpu")
+        # self.device = torch.device("cuda" if torch.cuda.device.is_available() else "cpu")
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         # 2. โหลดสถาปัตยกรรมโมเดล
         self.model = EfficientFace()
